@@ -1,0 +1,176 @@
+// Declarations and definitions
+@font-face {
+	font-family: 'Poppins_semi';
+	src: local('Poppins_Semi'), url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'WorkSans-VariableFont_wght';
+	src: local('WorkSans-VariableFont_wght'), url('../fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+}
+// Common usage declarations
+%header-shared {
+    font-family: WorkSans-VariableFont_wght, Helvetica, sans-serif;
+    font-weight: 500;
+    border-bottom: 0px;
+    font-size: 25px;
+}
+// Tags common styles
+%tags-shared{
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 3px 2px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: default;
+}
+$background-none: none;
+// Styles sheet for the whole plant container
+.plantContainer{
+    margin: 2%;
+    height: calc(100vh - 188px);
+    overflow-y: auto;
+    // box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+    //           0 2px 2px rgba(0,0,0,0.20), 
+    //           0 4px 4px rgba(0,0,0,0.15), 
+    //           0 8px 8px rgba(0,0,0,0.10),
+    //           0 16px 16px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.08), 
+                0 2px 2px rgba(0,0,0,0.12), 
+                0 4px 4px rgba(0,0,0,0.16), 
+                0 8px 8px rgba(0,0,0,0.20);
+    border-radius: 1%;
+    border: none;
+    // General card styles
+    .cardContainer{border-radius: 0%;}
+    .accordionHeader{
+        @extend %header-shared;
+        background-color: #2d3436 !important;
+        font-size: 20px !important;
+        color: #fff;
+    }
+    .accordionHeader_details{
+        @extend %header-shared;
+    }
+    
+    // Carousle style over riding
+    .carouselContainer{
+        div{
+            img{
+                max-height:236px;
+            }
+            // sliding buttons
+            ol{
+                li{
+                    background-color: #2f3640;
+                    border-radius: 50%;
+                    height: 10px;
+                    width: 10px;
+                }
+            }
+
+            a:first-of-type {
+                span{
+                    background-image: $background-none;
+                    &:after{
+                        content: '<';
+                        font-size: 55px;
+                        color: #2f3640;
+                    }
+                }
+            }
+            a:last-of-type {
+                span{
+                    background-image: $background-none;
+                    &:after{
+                        content: '>';
+                        font-size: 55px;
+                        color: #2f3640;
+                    }
+                }
+            }
+        }
+        
+    }
+    // Label styles 
+    .labelStyle{
+        font-family: Poppins_semi, Helvetica, sans-serif;
+    }
+    // Button style
+    .buttonStyle{
+        float: right !important;
+        &:hover{
+            background-color:#343a40 !important;
+        }
+    }
+    //Tags list styles
+    h2{
+        display: inline-block;
+        margin: 1px;
+        .harvestTags{
+            @extend %tags-shared;
+            background-color: #04b4e0;
+        }
+        .lineTags{
+            @extend %tags-shared;
+            background-color: #227093;
+        }
+        .nutritionTags{
+            @extend %tags-shared;
+            background-color: #2ecc71;
+        }
+        .planttypeTags{
+            @extend %tags-shared;
+            background-color: #c0392b;
+        }
+        .usageTags{
+            @extend %tags-shared;
+            background-color: #f39c12;
+        }
+    }
+    // Range slider labels
+    .rangeLabel{
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+    // PlantDetails right container
+    @media only screen and (min-width: 768px) {
+        // desktop screen styles to show the scroll
+        .rightContainer{max-height: 350px;overflow-y: auto;}
+    }
+}
+.listDetailsHeader{
+    margin-left: 2%;
+    margin-top: 1%;
+      // Styles for the border line
+        &:after{
+        content: "";
+        height: 2px;
+        margin-top: 2px;
+        background-color: #2c3e50;
+        position: absolute;
+        left: 12%; 
+        top: 15%;
+        right: 0;
+        width: 8% !important;
+        }   
+}
+.listHeader{
+    margin-left: 2%;
+    margin-top: 1%;
+      // Styles for the border line
+        &:after{
+        content: "";
+        height: 2px;
+        margin-top: 2px;
+        background-color: #2c3e50;
+        position: absolute;
+        left: 12%;
+        top: 15%;
+        right: 0;
+        width: 12%;
+        }
+}
+.popOverContainer{
+    max-width: 450px;
+}
